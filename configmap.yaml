@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: smarter-device-manager
+  namespace: kube-system
+data:
+  conf.yaml: |
+    - devicematch: ^fuse$
+      nummaxdevices: 20

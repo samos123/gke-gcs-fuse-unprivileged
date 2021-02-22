@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuse-mounter
+  namespace: fuse
+  labels:
+    app: fuse-mounter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: fuse-mounter
+  template:
+    metadata:
+      annotations:
+        container.apparmor.security.beta.kubernetes.io/debug-pod: unconfined
+      labels:
+        name: fuse-mounter
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: debug-pod
+        image: gcr.io/sam-playground-123/docker-toolbox:latest
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        #args: [ "mkdir /mnt/disks/fuse || true; gcsfuse --foreground sam-playground-123 /mnt/disks/fuse" ]
+        securityContext:
+          privileged: false
+          capabilities:
+            add: ["SYS_ADMIN"]
+        resources:
+          limits:
+            smarter-devices/fuse: 1
+            memory: 512Mi
+          requests:
+            smarter-devices/fuse: 1
+            cpu: 100m
+            memory: 256Mi
