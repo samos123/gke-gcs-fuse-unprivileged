@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        container.apparmor.security.beta.kubernetes.io/debug-pod: unconfined
+        container.apparmor.security.beta.kubernetes.io/debug-pod: localhost/lxc-default
       labels:
         name: fuse-mounter
     spec:
@@ -23,7 +23,6 @@ spec:
         image: gcr.io/sam-playground-123/docker-toolbox:latest
         command: [ "/bin/bash", "-c", "--" ]
         args: [ "while true; do sleep 30; done;" ]
-        #args: [ "mkdir /mnt/disks/fuse || true; gcsfuse --foreground sam-playground-123 /mnt/disks/fuse" ]
         securityContext:
           privileged: false
           capabilities:
