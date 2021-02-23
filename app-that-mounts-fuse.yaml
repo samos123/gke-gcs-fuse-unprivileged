@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        container.apparmor.security.beta.kubernetes.io/debug-pod: localhost/lxc-default
+        container.apparmor.security.beta.kubernetes.io/debug-pod: localhost/fuse
       labels:
         name: fuse-mounter
     spec:

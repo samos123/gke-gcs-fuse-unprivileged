@@ -1,6 +1,3 @@
-# Do not load this file.  Rather, load /etc/apparmor.d/lxc-containers, which
-# will source all profiles under /etc/apparmor.d/lxc
-
 # For some reason /etc/apparmor.d/tunables/global wasn't loaded automatically
 # # so loading it manually here. TODO: Figure out why.
 @{PROC}=/proc/
@@ -24,6 +21,7 @@ profile lxc-default flags=(attach_disconnected,mediate_deleted) {
   mount fstype=mqueue,
 
   # allow fuse mounts everywhere
+  mount fstype=fuse,
   mount fstype=fuse.*,
 
   # the container may never be allowed to mount devpts.  If it does, it
