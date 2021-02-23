@@ -4,8 +4,7 @@ metadata:
   name: apparmor-profiles
   namespace: apparmor
 data:
-  # Filename k8s-nginx maps to the definition of the nginx profile.
-  k8s-nginx: |-
+  k8s-fuse: |-
     # For some reason /etc/apparmor.d/tunables/global wasn't loaded automatically
     # # so loading it manually here. TODO: Figure out why.
     @{PROC}=/proc/
