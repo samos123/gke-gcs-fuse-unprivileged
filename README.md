@@ -27,6 +27,11 @@ Create the ConfigMap that contains our AppArmor policy:
 kubectl apply -f apparmor-cm.yaml
 ```
 
+Create DaemonSet that runs AppArmor loader on each node:
+```
+kubectl apply -f apparmor-ds.yaml
+```
+
 ### Mount fuse from a pod
 Create a deployment that specifies our custom AppArmor policy
 ```
