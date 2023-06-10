@@ -1,4 +1,12 @@
-# Mount Fuse without privileges in K8s/GKE
+# Mount GCS Fuse without privileges in K8s/GKE
+You can now use GCS fuse for GKE which doesn't require privileged pods: https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/cloud-storage-fuse-csi-driver
+
+
+
+
+
+OLD ARCHICED! Only use for non GCS use cases below:
+------------------------
 
 All credit should go to @pre: https://github.com/kubernetes/kubernetes/issues/7890#issuecomment-766088805
 
